@@ -79,17 +79,20 @@ class my_clean(clean.clean):
 
 
 # setup command
+VERSION='1.8.1'
 setup(name='pyds9',
-      version='1.8.1',
+      version=VERSION,
       description='Python/DS9 connection via XPA (with numpy and pyfits support)',
       author='Bill Joye and Eric Mandel',
       author_email='saord@cfa.harvard.edu',
-      url='http://hea-www.harvard.edu/saord/ds9/',
+      url='https://github.com/TESScience/pyds9/',
+      download_url = 'https://github.com/TESScience/pyds9/tarball/{VERSION}'.format(VERSION=VERSION),
+      keywords = ['astronomy', 'science', 'ds9'],
       py_modules=['pyds9', 'xpa'],
       data_files=[('', [os.path.join(xpadir, xpalib),
                         os.path.join(xpadir, xpans)])],
       cmdclass={'build_py': my_build_py,
                 'install_data': my_install_data,
                 'clean': my_clean},
-      install_requires=['six']
+      install_requires=['six'],
       )
